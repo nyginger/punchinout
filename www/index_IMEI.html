@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+ 
+ <title>SIM</title>
+ <script type="text/javascript" src="cordova.js"></script>
+ <script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        console.log(device.cordova);
+        document.getElementById("devinfo").innerHTML=JSON.stringify(device);
+    }
+
+ </script>
+</head>
+<body>
+ <h3><p id="devinfo"></p></h3>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Time Check</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="css/sidemenu.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/moment.js"></script>
+        <script src="js/sidemenu.js"></script>
+
+        <style>
+            /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+            @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; max-zoom: 100% ;  }
+            @viewport     { user-zoom: fixed ; min-zoom: 100% ; max-zoom: 100% ; }
+        </style>
+
+    </head>
+    <body>
+        <script src="js/app.js"></script>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">출퇴근 입력 </a>
+            <a href="register.html">사용자 등록</a>
+            <a id="search">출퇴근정보조회</a>
+        </div>
+
+        <div class="main" style="position:fixed;right:0;" >
+            <span style="font-size:30px;" onclick="openNav()">&nbsp;&#8801;&nbsp;</span>
+        </div>
+        <div class="container-fluid">
+                <div style="padding-top: 50px;"></div>
+                <h3 style="text-align:center;">출퇴근 시간입력</h3>
+                  <div style="padding-top: 5px;"></div>
+                    <div class="card">
+                        <div class="card-body" >
+                            <form method="post" action="#">
+                                <div style="padding-top: 5px;"></div>
+                                <input type="text" id="phone_uuid" name="phone_uuid" class="ph_uuid form-control" placeholder="Phone Serial" readonly>
+                                <div style="padding-top: 5px;"></div>
+                                <input type="text" id="personName" name="personName" class="personName form-control" placeholder="Name" readonly>
+                                <div style="padding-top: 5px;"></div>
+                                <input type="text" id="io" name="io" class="in_out form-control" placeholder="출/퇴근" readonly>
+                                <div style="padding-top: 5px;"></div>
+                                <input type="text" id="time_rec" name="time_rec" class="in_out form-control" placeholder="Time" readonly>
+                                <div style="padding-top: 5px;"></div>
+                                <blockquote class="blockquote text-center"><h5><small>미등록자는 등록후 사용하세요.</small></h5>
+                                <h6><small>(Please register first!)</small></h6></blockquote>
+                                <div style="padding-top: 10px;"></div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="updatetime1();">출근</button>
+                                <div style="padding-top: 5px;"></div>
+                                <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="updatetime2();">퇴근</button>
+                            </form>                  
+                        </div>
+                    </div>
+        </div>
+
+    
+
+
+
+    </body>
+</html>

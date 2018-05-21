@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>SIM</title>
+ <script type="text/javascript" src="cordova.js"></script>
+ <script type="text/javascript">
+    document.addEventListener("deviceready",onDeviceReady,false);
+    function onDeviceReady(){
+        window.plugins.sim.getSimInfo(successCallback, errorCallback);
+    }
+    function successCallback(result) {
+document.getElementById("simInfo").innerHTML=JSON.stringify(result);
+    }
+    function errorCallback(error) {
+document.getElementById("simInfo").innerHTML=JSON.stringify(error);
+    }
+
+ </script>
+</head>
+<body>
+ <h3><p id="simInfo"></p></h3>
+</body>
+</html>
