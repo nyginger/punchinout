@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>출퇴근 정보조회</title>
+<script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css')}}" > 
+<style>
+
+      img {
+      max-width: 100%
+      }
+      input, textarea {
+      max-width:100%
+      }
+      .header {
+      background: url(header.png) 50% no-repeat;
+      background-size: contain
+      }
+      .header {
+      font-family: Arial
+    }
+    .wf-opensans-n4-active .header {
+      font-family: 'Open Sans'
+    }
+    /*Default styles*/
+    .related-products li {
+      float: left;
+      width: 50%;
+    }
+</style>
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        {% if query %}
+            <h3>출/퇴근 검색결과</h3>
+        {% endif %}
+        <div style="padding-top: 20px;"></div>
+              {% from "_pagehelpers.html" import render_pagination %}
+              {{ render_pagination(records,query) }}
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>출퇴근(In/Out)</th>
+                    <th>일시(Date-Time)</th>
+                </tr>
+
+                {% for rec in records.items %}
+                <tr>
+                    <td>{{rec.person_name}}</td>
+                    <td>{{rec.in_out}}</td>
+                    <td>{{rec.time_recorded.strftime('%Y-%m-%d %H:%M:%S') }} </td>
+                </tr>
+      			{% endfor %}
+
+          </table>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>

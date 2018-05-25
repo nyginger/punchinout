@@ -1,0 +1,27 @@
+{% macro render_pagination(paginated,query) %}
+<meta charset="UTF-8"> 
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+        {% if paginated.has_prev %}
+            {% if paginated.prev_num|int !=1 %}
+                <li class="page-item"><a class="page-link"  href="{{ url_for('search', page=1, query=query) }}">&#8810;</a></li>
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="{{ url_for('search', page=paginated.prev_num, query=query) }}">{{paginated.prev_num}}</a></li>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">이전</a></li>
+        {% endif %}
+        <li class="page-item active"><a class="page-link" href="#">{{paginated.page}} <span class="sr-only">(current)</span></a></li>
+        {% if paginated.has_next %}
+            <li class="page-item"><a class="page-link" href="{{ url_for('search', page=paginated.next_num, query=query) }}">{{paginated.next_num}}</a></li>
+            {% if paginated.next_num!=paginated.pages %}
+                <li class="page-item"><a class="page-link" href="{{ url_for('search', page=paginated.pages, query=query) }}">&#8811;</a></li>
+            {% endif %}
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">다음</a></li>
+        {% endif %}
+
+    </ul> 
+    <p class="text-right">(현재 {{paginated.page}} / {{paginated.pages}}페이지)</p>
+
+</nav>
+{% endmacro %}
